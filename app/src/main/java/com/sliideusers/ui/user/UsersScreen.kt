@@ -35,6 +35,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -95,8 +96,8 @@ fun UsersBody(
     addUserUiState: AddUserDialogUiState,
     uiActions: UsersActions,
 ) {
-    var isDeleteDialogVisible by remember { mutableStateOf(false) }
-    var selectedUserId by remember { mutableStateOf<Int?>(null) }
+    var isDeleteDialogVisible by rememberSaveable { mutableStateOf(false) }
+    var selectedUserId by rememberSaveable { mutableStateOf<Int?>(null) }
 
     Box(
         modifier = modifier
@@ -114,7 +115,11 @@ fun UsersBody(
         }
 
         LazyColumn(
-            modifier = Modifier
+            modifier = Modifier.padding(
+                start = dimensionResource(R.dimen.base_padding_half),
+                end = dimensionResource(R.dimen.base_padding_half),
+                bottom = dimensionResource(R.dimen.base_padding_half),
+            )
         ) {
             items(uiState.users) { user ->
                 UserCard(user) {
@@ -162,7 +167,6 @@ fun UserCard(
                 )
             },
         elevation = CardDefaults.cardElevation(defaultElevation = dimensionResource(R.dimen.base_elevation)),
-        colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
         Row(
             modifier = Modifier
@@ -178,7 +182,7 @@ fun UserCard(
                     .background(MaterialTheme.colorScheme.tertiary),
                 contentAlignment = Alignment.Center
             ) {
-                // Display Initials if no profile picture is provided
+                // Display Initials as no profile picture is provided
                 Text(
                     text = user.initials,
                     fontSize = 20.sp,
@@ -189,20 +193,10 @@ fun UserCard(
             Column(
                 modifier = Modifier.weight(1f)
             ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(
-                        text = user.name,
-                        style = MaterialTheme.typography.titleMedium,
-                    )
-                    Spacer(modifier = Modifier.weight(1f))
-                    Text(
-                        text = user.id.toString(),
-                        style = MaterialTheme.typography.labelSmall,
-                    )
-                }
+                Text(
+                    text = user.name,
+                    style = MaterialTheme.typography.titleMedium,
+                )
                 Text(
                     text = user.email,
                     style = MaterialTheme.typography.bodyMedium,
