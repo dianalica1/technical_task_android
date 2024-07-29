@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Sliide Users</string>
+    <string name="user_list_title">User list</string>
+    <string name="back_button">Back</string>
+
+    <string name="error_no_internet">No internet. Please check your internet connection.</string>
+    <string name="error_occurred">An error has occurred. Please try again later.</string>
+    <string name="error_on_save">Email is incorrect or already used.</string>
+    <string name="user_successfully_created">User has been successfully created.</string>
+    <string name="user_successfully_deleted">User has been successfully deleted.</string>
+    <string name="user_delete_error">There was an error on deleting the user.</string>
+    <string name="add_new_user">Add new user</string>
+    <string name="retry">Retry</string>
+    <string name="delete_user_confirmation_question">Are you sure you want to remove this user?</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+
+</resources>

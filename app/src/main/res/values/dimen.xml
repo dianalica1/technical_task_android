@@ -1,0 +1,15 @@
+<resources>
+    <dimen name="base_padding_big">24dp</dimen>
+    <dimen name="base_padding">16dp</dimen>
+    <dimen name="base_padding_half">8dp</dimen>
+    <dimen name="base_padding_quarter">4dp</dimen>
+
+    <dimen name="base_button_width">240dp</dimen>
+    <dimen name="base_button_width_half">120dp</dimen>
+    <dimen name="base_elevation">2dp</dimen>
+
+    // Name initials
+    <dimen name="name_initials_box_sie">56dp</dimen>
+    <dimen name="text_size_initials">20sp</dimen>
+
+</resources>
